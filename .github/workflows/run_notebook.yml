@@ -13,7 +13,7 @@ jobs:
 
       - name: Run Notebook
         run: |
-          jupyter nbconvert --to notebook --execute "你的筆記本檔名.ipynb" --output "output.ipynb"
+          jupyter nbconvert --to notebook --execute "get_apache_log_to_azure_sql.ipynb" --output "output.ipynb"
           
       # --- START OF CORRECTION ---
       - name: Upload Artifact
