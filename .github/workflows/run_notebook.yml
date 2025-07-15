@@ -15,7 +15,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.9'
+          python-version: '3.12'
 
       - name: Install Microsoft ODBC Driver 18 for SQL Server
         run: |
@@ -28,13 +28,11 @@ jobs:
           sudo apt-get -qq update
           sudo ACCEPT_EULA=Y apt-get -qq install -y msodbcsql18 unixodbc-dev
 
-      # --- START OF CORRECTION ---
-      - name: Install Python Dependencies
+      # 步驟 4: 安裝 Python 套件 (已修改)
+      - name: Install Python Dependencies from requirements.txt
         run: |
           python -m pip install --upgrade pip
-          # 明確安裝 jupyterlab 以確保 jupyter command 可用
-          pip install jupyterlab nbconvert pyodbc
-      # --- END OF CORRECTION ---
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Verify Installation
         run: |
@@ -53,9 +51,4 @@ jobs:
 
       - name: Run Python Script
         run: python get_apache_log_to_azure_sql.py # 直接執行 .py 檔
-          
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: executed-notebook
-          path: output.ipynb
+         
