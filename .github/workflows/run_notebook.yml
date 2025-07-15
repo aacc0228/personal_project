@@ -9,16 +9,46 @@ jobs:
   run-notebook:
     runs-on: ubuntu-latest
     steps:
-      # ... (前面其他步驟不變) ...
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.9'
+
+      - name: Install Microsoft ODBC Driver 18 for SQL Server
+        run: |
+          # ... (此處安裝 ODBC 的步驟不變) ...
+          echo "Ubuntu Version: $(lsb_release -rs)"
+          sudo apt-get -qq update
+          sudo apt-get -qq install -y curl gpg apt-transport-https
+          curl -s https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /usr/share/keyrings/microsoft-prod.gpg > /dev/null
+          curl -s https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list
+          sudo apt-get -qq update
+          sudo ACCEPT_EULA=Y apt-get -qq install -y msodbcsql18 unixodbc-dev
+
+      # --- START OF CORRECTION ---
+      - name: Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          # 明確安裝 jupyterlab 以確保 jupyter command 可用
+          pip install jupyterlab nbconvert pyodbc
+      # --- END OF CORRECTION ---
+
+      - name: Verify Installation
+        run: |
+          # 驗證 ODBC
+          python -c "import pyodbc; print('Available drivers:', pyodbc.drivers())"
+          # 驗證 jupyter 是否存在
+          which jupyter
 
       - name: Run Notebook
         run: |
           jupyter nbconvert --to notebook --execute "get_apache_log_to_azure_sql.ipynb" --output "output.ipynb"
           
-      # --- START OF CORRECTION ---
       - name: Upload Artifact
-        uses: actions/upload-artifact@v4 # 將 v3 改為 v4
+        uses: actions/upload-artifact@v4
         with:
           name: executed-notebook
           path: output.ipynb
-      # --- END OF CORRECTION ---
