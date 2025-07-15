@@ -1,38 +1,59 @@
-name: Run-Colab-Notebook
+name: Run Notebook with Dependencies
 
-# 排程觸發器：使用 crontab 語法
-# 以下範例代表在 UTC 時間的每天凌晨 1 點執行 (對應台北時間早上 9 點)
+# 設定觸發條件 (例如手動、定時或推送到 main 分支)
 on:
-  schedule:
-    - cron: '0 1 * * *'
-  # 也允許手動觸發
   workflow_dispatch:
+  schedule:
+    - cron: '0 1 * * *' # 每天 UTC 凌晨 1 點
+  push:
+    branches:
+      - main
 
 jobs:
-  build:
+  run-notebook:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
+      # 步驟 1: Checkout 你的程式碼
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
+      # 步驟 2: 設定 Python 環境
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.9' # 指定你需要的 Python 版本
+          python-version: '3.9'
 
-      - name: Install Dependencies
+      # --- 從 install_odbc.yml 複製過來的步驟 ---
+      # 步驟 3: 安裝 Microsoft ODBC Driver 和相關工具
+      - name: Install Microsoft ODBC Driver 17 for SQL Server
+        run: |
+          sudo apt-get -qq update
+          sudo apt-get -qq install -y curl apt-transport-https
+          curl -s https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+          curl -s https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list
+          sudo apt-get -qq update
+          sudo ACCEPT_EULA=Y apt-get -qq install -y msodbcsql17 unixodbc-dev
+
+      # 步驟 4: 安裝 Python 套件 (包含 pyodbc 和 notebook 相關套件)
+      - name: Install Python Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install jupyter nbconvert
-          # 如果有 requirements.txt，就執行這行安裝
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install jupyter nbconvert pyodbc
+          # 如果你有 requirements.txt，更推薦使用下面這行
+          # pip install -r requirements.txt
+      
+      # (可選但建議) 步驟 5: 驗證安裝
+      - name: Verify Installation
+        run: |
+          python -c "import pyodbc; print('Available drivers:', pyodbc.drivers())"
 
+      # --- 這是你原本 run_notebook.yml 的核心步驟 ---
+      # 步驟 6: 執行 Jupyter Notebook
       - name: Run Notebook
         run: |
-          # 執行你的筆記本檔案 (請換成你自己的檔名)
-          jupyter nbconvert --to notebook --execute "get_apache_log_to_azure_sql.ipynb" --output "output.ipynb"
+          jupyter nbconvert --to notebook --execute "你的筆記本檔名.ipynb" --output "output.ipynb"
           
-      # (可選) 如果需要保存執行結果，可以上傳為 artifact
+      # (可選) 步驟 7: 上傳執行後的 Notebook 結果，方便你下載查看
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
