@@ -10,7 +10,7 @@ def parse_apache_log_to_azure_sql(log_file='apache_2.log'):
     username = 'SQLAdmin'  # <-- 請修改為您的 SQL 登入帳號
     password = '1qaz2wsx#edc'  # <-- 請修改為您的 SQL 登入密碼
 
-    driver = '{ODBC Driver 17 for SQL Server}'
+    driver = '{ODBC Driver 18 for SQL Server}'
 
     connection_string = f'DRIVER={driver};SERVER={server};DATABASE={database};UID={username};PWD={password}'
 

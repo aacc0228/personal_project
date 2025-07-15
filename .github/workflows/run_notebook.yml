@@ -43,9 +43,16 @@ jobs:
           # 驗證 jupyter 是否存在
           which jupyter
 
-      - name: Run Notebook
+      - name: Get GitHub Actions IP Ranges
+        id: ip
         run: |
-          jupyter nbconvert --to notebook --execute "get_apache_log_to_azure_sql.ipynb" --output "output.ipynb"
+          IP_RANGES=$(curl -s https://api.github.com/meta | jq -r '.actions[]' | tr '\n' ',')
+          echo "GitHub Actions IPs: $IP_RANGES"
+          # 將 IP 範圍設定為後續步驟可用的輸出
+          echo "ip_ranges=$IP_RANGES" >> $GITHUB_OUTPUT
+
+      - name: Run Python Script
+        run: python get_apache_log_to_azure_sql.py # 直接執行 .py 檔
           
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
