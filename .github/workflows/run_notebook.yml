@@ -1,59 +1,56 @@
-name: Run Notebook with Dependencies
+name: Run Notebook with ODBC Dependencies
 
-# 設定觸發條件 (例如手動、定時或推送到 main 分支)
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 1 * * *' # 每天 UTC 凌晨 1 點
-  push:
-    branches:
-      - main
+    - cron: '0 1 * * *'
 
 jobs:
   run-notebook:
     runs-on: ubuntu-latest
     steps:
-      # 步驟 1: Checkout 你的程式碼
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # 步驟 2: 設定 Python 環境
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.9'
 
-      # --- 從 install_odbc.yml 複製過來的步驟 ---
-      # 步驟 3: 安裝 Microsoft ODBC Driver 和相關工具
-      - name: Install Microsoft ODBC Driver 17 for SQL Server
+      # --- START OF CORRECTION ---
+      - name: Install Microsoft ODBC Driver 18 for SQL Server
         run: |
+          echo "Ubuntu Version: $(lsb_release -rs)"
           sudo apt-get -qq update
-          sudo apt-get -qq install -y curl apt-transport-https
-          curl -s https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+          sudo apt-get -qq install -y curl gpg apt-transport-https
+          
+          # 使用新的 GPG 金鑰處理方式
+          curl -s https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /usr/share/keyrings/microsoft-prod.gpg > /dev/null
+          
+          # 建立指向新金鑰的軟體來源列表
           curl -s https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list
+          
+          # 更新套件列表
           sudo apt-get -qq update
-          sudo ACCEPT_EULA=Y apt-get -qq install -y msodbcsql17 unixodbc-dev
 
-      # 步驟 4: 安裝 Python 套件 (包含 pyodbc 和 notebook 相關套件)
+          # 安裝 msodbcsql18
+          sudo ACCEPT_EULA=Y apt-get -qq install -y msodbcsql18 unixodbc-dev
+      # --- END OF CORRECTION ---
+
       - name: Install Python Dependencies
         run: |
           python -m pip install --upgrade pip
           pip install jupyter nbconvert pyodbc
-          # 如果你有 requirements.txt，更推薦使用下面這行
-          # pip install -r requirements.txt
-      
-      # (可選但建議) 步驟 5: 驗證安裝
+
       - name: Verify Installation
         run: |
+          # 驗證時應該要能看到 ODBC Driver 18 for SQL Server
           python -c "import pyodbc; print('Available drivers:', pyodbc.drivers())"
-
-      # --- 這是你原本 run_notebook.yml 的核心步驟 ---
-      # 步驟 6: 執行 Jupyter Notebook
+          
       - name: Run Notebook
         run: |
           jupyter nbconvert --to notebook --execute "你的筆記本檔名.ipynb" --output "output.ipynb"
           
-      # (可選) 步驟 7: 上傳執行後的 Notebook 結果，方便你下載查看
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
