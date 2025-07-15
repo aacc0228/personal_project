@@ -15,7 +15,7 @@ def parse_apache_log_to_azure_sql(log_file='apache_2.log'):
     connection_string = f'DRIVER={driver};SERVER={server};DATABASE={database};UID={username};PWD={password}'
 
     # --- 2. 日誌篩選邏輯 ---
-    today = datetime(2025, 7, 14)
+    today = date.today()
     yesterday = today - timedelta(days=1)
     yesterday_str = yesterday.strftime('[%a %b %d')
 
