@@ -34,12 +34,10 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Verify Installation
+      - name: Verify ODBC Setup
         run: |
-          # 驗證 ODBC
+          echo "Verifying that pyodbc can find the installed ODBC driver..."
           python -c "import pyodbc; print('Available drivers:', pyodbc.drivers())"
-          # 驗證 jupyter 是否存在
-          which jupyter
 
       - name: Get GitHub Actions IP Ranges
         id: ip
