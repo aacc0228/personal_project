@@ -1,0 +1,82 @@
+[Tue Jul 02 10:15:20.123456 2025] [:info] [pid 1234:tid 5678] [client 192.168.1.1:12345] Server initialized
+[Tue Jul 02 14:22:20.245871 2025] [:error] [pid 1234:tid 5678] [client 192.168.1.1:12345] AH00124: Request exceeded the limit of 10 internal redirects for /index.php
+[Wed Jul 03 09:05:00.567890 2025] [:error] [pid 5566:tid 7788] [client 10.0.0.5:54321] File does not exist: /var/www/html/favicon.ico
+[Wed Jul 03 11:30:00.000000 2025] [:warn] [pid 1234:tid 5678] [client 192.168.1.1:12346] client denied by server configuration: /var/www/html/private
+[Thu Jul 04 18:01:10.987654 2025] [:error] [pid 5566:tid 7788] [client 10.0.0.5:54322] AH01630: client denied by server configuration: /var/www/html/admin/config.php
+[Fri Jul 05 20:00:05.111222 2025] [:info] [pid 1234:tid 5678] [client 192.168.1.1:12347] Graceful restart requested.
+[Sat Jul 06 02:15:45.333444 2025] [:error] [pid 9988:tid 7755] [client 172.17.0.1:9876] Out of memory (allocated 12345678 bytes)
+[Sun Jul 13 02:15:45.333444 2025] [:error] [pid 9789:tid 7757] [client 172.17.0.1:9876] error code: 10000131 tibame_add_course api error user: test001 course_id: TI31
+[Sun Jul 13 02:17:45.333444 2025] [:error] [pid 9889:tid 7757] [client 172.17.0.1:9876] error code: 10000131 tibame_add_course api error user: test001 course_id: TI31
+[Sun Jul 13 02:19:45.333444 2025] [:error] [pid 9899:tid 7757] [client 172.17.0.1:9876] error code: 10000131 tibame_add_course api error user: test001 course_id: TI31
+[Sun Jul 13 02:20:45.333444 2025] [:error] [pid 9919:tid 7757] [client 172.17.0.1:9876] error code: 10000131 tibame_add_course api error user: test001 course_id: TI31
+[Sun Jul 13 02:25:45.333444 2025] [:error] [pid 9929:tid 7757] [client 172.17.0.1:9876] error code: 10000131 tibame_add_course api error user: test001 course_id: TI31
+[Sun Jul 13 02:15:45.333444 2025] [:error] [pid 9789:tid 7757] [client 172.17.0.1:9876] error code: 10000132 tibame_delete_course api error user: test001 course_id: TI31
+[Sun Jul 13 02:17:45.333444 2025] [:error] [pid 9889:tid 7757] [client 172.17.0.1:9876] error code: 10000132 tibame_delete_course api error user: test001 course_id: TI31
+[Sun Jul 13 02:19:45.333444 2025] [:error] [pid 9899:tid 7757] [client 172.17.0.1:9876] error code: 10000132 tibame_delete_course api error user: test001 course_id: TI31
+[Sun Jul 13 02:20:45.333444 2025] [:error] [pid 9919:tid 7757] [client 172.17.0.1:9876] error code: 10000132 tibame_delete_course api error user: test001 course_id: TI31
+[Sun Jul 13 02:25:45.333444 2025] [:error] [pid 9929:tid 7757] [client 172.17.0.1:9876] error code: 10000132 tibame_delete_course api error user: test001 course_id: TI31
+[Sun Jul 13 02:15:45.333444 2025] [:error] [pid 9789:tid 7757] [client 172.17.0.1:9876] error code: 10000133 tibame_edit_course api error user: test001 course_id: TI31
+[Sun Jul 13 02:17:45.333444 2025] [:error] [pid 9889:tid 7757] [client 172.17.0.1:9876] error code: 10000133 tibame_edit_course api error user: test001 course_id: TI31
+[Sun Jul 13 02:19:45.333444 2025] [:error] [pid 9899:tid 7757] [client 172.17.0.1:9876] error code: 10000133 tibame_edit_course api error user: test001 course_id: TI31
+[Sun Jul 13 02:20:45.333444 2025] [:error] [pid 9919:tid 7757] [client 172.17.0.1:9876] error code: 10000133 tibame_edit_course api error user: test001 course_id: TI31
+[Sun Jul 13 02:25:45.333444 2025] [:error] [pid 9929:tid 7757] [client 172.17.0.1:9876] error code: 10000133 tibame_edit_course api error user: test001 course_id: TI31
+[Mon Jul 14 02:15:45.333444 2025] [:error] [pid 9789:tid 7757] [client 172.17.0.1:9876] error code: 10000131 tibame_add_course api error user: test001 course_id: TI31
+[Mon Jul 14 02:17:45.333444 2025] [:error] [pid 9889:tid 7757] [client 172.17.0.1:9876] error code: 10000131 tibame_add_course api error user: test001 course_id: TI31
+[Mon Jul 14 02:19:45.333444 2025] [:error] [pid 9899:tid 7757] [client 172.17.0.1:9876] error code: 10000131 tibame_add_course api error user: test001 course_id: TI31
+[Mon Jul 14 02:20:45.333444 2025] [:error] [pid 9919:tid 7757] [client 172.17.0.1:9876] error code: 10000131 tibame_add_course api error user: test001 course_id: TI31
+[Mon Jul 14 02:25:45.333444 2025] [:error] [pid 9929:tid 7757] [client 172.17.0.1:9876] error code: 10000131 tibame_add_course api error user: test001 course_id: TI31
+[Mon Jul 14 02:15:45.333444 2025] [:error] [pid 9789:tid 7757] [client 172.17.0.1:9876] error code: 10000132 tibame_delete_course api error user: test001 course_id: TI31
+[Mon Jul 14 02:17:45.333444 2025] [:error] [pid 9889:tid 7757] [client 172.17.0.1:9876] error code: 10000132 tibame_delete_course api error user: test001 course_id: TI31
+[Mon Jul 14 02:19:45.333444 2025] [:error] [pid 9899:tid 7757] [client 172.17.0.1:9876] error code: 10000132 tibame_delete_course api error user: test001 course_id: TI31
+[Mon Jul 14 02:20:45.333444 2025] [:error] [pid 9919:tid 7757] [client 172.17.0.1:9876] error code: 10000132 tibame_delete_course api error user: test001 course_id: TI31
+[Mon Jul 14 02:25:45.333444 2025] [:error] [pid 9929:tid 7757] [client 172.17.0.1:9876] error code: 10000132 tibame_delete_course api error user: test001 course_id: TI31
+[Mon Jul 14 02:15:45.333444 2025] [:error] [pid 9789:tid 7757] [client 172.17.0.1:9876] error code: 10000133 tibame_edit_course api error user: test001 course_id: TI31
+[Mon Jul 14 02:17:45.333444 2025] [:error] [pid 9889:tid 7757] [client 172.17.0.1:9876] error code: 10000133 tibame_edit_course api error user: test001 course_id: TI31
+[Mon Jul 14 02:19:45.333444 2025] [:error] [pid 9899:tid 7757] [client 172.17.0.1:9876] error code: 10000133 tibame_edit_course api error user: test001 course_id: TI31
+[Mon Jul 14 02:20:45.333444 2025] [:error] [pid 9919:tid 7757] [client 172.17.0.1:9876] error code: 10000133 tibame_edit_course api error user: test001 course_id: TI31
+[Mon Jul 14 02:25:45.333444 2025] [:error] [pid 9929:tid 7757] [client 172.17.0.1:9876] error code: 10000133 tibame_edit_course api error user: test001 course_id: TI31
+[Tue Jul 15 02:15:45.333444 2025] [:error] [pid 9789:tid 7757] [client 172.17.0.1:9876] error code: 10000131 tibame_add_course api error user: test001 course_id: TI31
+[Tue Jul 15 02:17:45.333444 2025] [:error] [pid 9889:tid 7757] [client 172.17.0.1:9876] error code: 10000131 tibame_add_course api error user: test001 course_id: TI31
+[Tue Jul 15 02:19:45.333444 2025] [:error] [pid 9899:tid 7757] [client 172.17.0.1:9876] error code: 10000131 tibame_add_course api error user: test001 course_id: TI31
+[Tue Jul 15 02:20:45.333444 2025] [:error] [pid 9919:tid 7757] [client 172.17.0.1:9876] error code: 10000131 tibame_add_course api error user: test001 course_id: TI31
+[Tue Jul 15 02:25:45.333444 2025] [:error] [pid 9929:tid 7757] [client 172.17.0.1:9876] error code: 10000131 tibame_add_course api error user: test001 course_id: TI31
+[Tue Jul 15 02:15:45.333444 2025] [:error] [pid 9789:tid 7757] [client 172.17.0.1:9876] error code: 10000132 tibame_delete_course api error user: test001 course_id: TI31
+[Tue Jul 15 02:17:45.333444 2025] [:error] [pid 9889:tid 7757] [client 172.17.0.1:9876] error code: 10000132 tibame_delete_course api error user: test001 course_id: TI31
+[Tue Jul 15 02:19:45.333444 2025] [:error] [pid 9899:tid 7757] [client 172.17.0.1:9876] error code: 10000132 tibame_delete_course api error user: test001 course_id: TI31
+[Tue Jul 15 02:20:45.333444 2025] [:error] [pid 9919:tid 7757] [client 172.17.0.1:9876] error code: 10000132 tibame_delete_course api error user: test001 course_id: TI31
+[Tue Jul 15 02:25:45.333444 2025] [:error] [pid 9929:tid 7757] [client 172.17.0.1:9876] error code: 10000132 tibame_delete_course api error user: test001 course_id: TI31
+[Tue Jul 15 02:15:45.333444 2025] [:error] [pid 9789:tid 7757] [client 172.17.0.1:9876] error code: 10000133 tibame_edit_course api error user: test001 course_id: TI31
+[Tue Jul 15 02:17:45.333444 2025] [:error] [pid 9889:tid 7757] [client 172.17.0.1:9876] error code: 10000133 tibame_edit_course api error user: test001 course_id: TI31
+[Tue Jul 15 02:19:45.333444 2025] [:error] [pid 9899:tid 7757] [client 172.17.0.1:9876] error code: 10000133 tibame_edit_course api error user: test001 course_id: TI31
+[Tue Jul 15 02:20:45.333444 2025] [:error] [pid 9919:tid 7757] [client 172.17.0.1:9876] error code: 10000133 tibame_edit_course api error user: test001 course_id: TI31
+[Tue Jul 15 02:25:45.333444 2025] [:error] [pid 9929:tid 7757] [client 172.17.0.1:9876] error code: 10000133 tibame_edit_course api error user: test001 course_id: TI31
+[Wed Jul 16 02:15:45.333444 2025] [:error] [pid 9789:tid 7757] [client 172.17.0.1:9876] error code: 10000131 tibame_add_course api error user: test001 course_id: TI31
+[Wed Jul 16 02:17:45.333444 2025] [:error] [pid 9889:tid 7757] [client 172.17.0.1:9876] error code: 10000131 tibame_add_course api error user: test001 course_id: TI31
+[Wed Jul 16 02:19:45.333444 2025] [:error] [pid 9899:tid 7757] [client 172.17.0.1:9876] error code: 10000131 tibame_add_course api error user: test001 course_id: TI31
+[Wed Jul 16 02:20:45.333444 2025] [:error] [pid 9919:tid 7757] [client 172.17.0.1:9876] error code: 10000131 tibame_add_course api error user: test001 course_id: TI31
+[Wed Jul 16 02:25:45.333444 2025] [:error] [pid 9929:tid 7757] [client 172.17.0.1:9876] error code: 10000131 tibame_add_course api error user: test001 course_id: TI31
+[Wed Jul 16 02:15:45.333444 2025] [:error] [pid 9789:tid 7757] [client 172.17.0.1:9876] error code: 10000132 tibame_delete_course api error user: test001 course_id: TI31
+[Wed Jul 16 02:17:45.333444 2025] [:error] [pid 9889:tid 7757] [client 172.17.0.1:9876] error code: 10000132 tibame_delete_course api error user: test001 course_id: TI31
+[Wed Jul 16 02:19:45.333444 2025] [:error] [pid 9899:tid 7757] [client 172.17.0.1:9876] error code: 10000132 tibame_delete_course api error user: test001 course_id: TI31
+[Wed Jul 16 02:20:45.333444 2025] [:error] [pid 9919:tid 7757] [client 172.17.0.1:9876] error code: 10000132 tibame_delete_course api error user: test001 course_id: TI31
+[Wed Jul 16 02:25:45.333444 2025] [:error] [pid 9929:tid 7757] [client 172.17.0.1:9876] error code: 10000132 tibame_delete_course api error user: test001 course_id: TI31
+[Wed Jul 16 02:15:45.333444 2025] [:error] [pid 9789:tid 7757] [client 172.17.0.1:9876] error code: 10000133 tibame_edit_course api error user: test001 course_id: TI31
+[Wed Jul 16 02:17:45.333444 2025] [:error] [pid 9889:tid 7757] [client 172.17.0.1:9876] error code: 10000133 tibame_edit_course api error user: test001 course_id: TI31
+[Wed Jul 16 02:19:45.333444 2025] [:error] [pid 9899:tid 7757] [client 172.17.0.1:9876] error code: 10000133 tibame_edit_course api error user: test001 course_id: TI31
+[Wed Jul 16 02:20:45.333444 2025] [:error] [pid 9919:tid 7757] [client 172.17.0.1:9876] error code: 10000133 tibame_edit_course api error user: test001 course_id: TI31
+[Wed Jul 16 02:25:45.333444 2025] [:error] [pid 9929:tid 7757] [client 172.17.0.1:9876] error code: 10000133 tibame_edit_course api error user: test001 course_id: TI31
+[Thu Jul 17 02:15:45.333444 2025] [:error] [pid 9789:tid 7757] [client 172.17.0.1:9876] error code: 10000131 tibame_add_course api error user: test001 course_id: TI31
+[Thu Jul 17 02:17:45.333444 2025] [:error] [pid 9889:tid 7757] [client 172.17.0.1:9876] error code: 10000131 tibame_add_course api error user: test001 course_id: TI31
+[Thu Jul 17 02:19:45.333444 2025] [:error] [pid 9899:tid 7757] [client 172.17.0.1:9876] error code: 10000131 tibame_add_course api error user: test001 course_id: TI31
+[Thu Jul 17 02:20:45.333444 2025] [:error] [pid 9919:tid 7757] [client 172.17.0.1:9876] error code: 10000131 tibame_add_course api error user: test001 course_id: TI31
+[Thu Jul 17 02:25:45.333444 2025] [:error] [pid 9929:tid 7757] [client 172.17.0.1:9876] error code: 10000131 tibame_add_course api error user: test001 course_id: TI31
+[Thu Jul 17 02:15:45.333444 2025] [:error] [pid 9789:tid 7757] [client 172.17.0.1:9876] error code: 10000132 tibame_delete_course api error user: test001 course_id: TI31
+[Thu Jul 17 02:17:45.333444 2025] [:error] [pid 9889:tid 7757] [client 172.17.0.1:9876] error code: 10000132 tibame_delete_course api error user: test001 course_id: TI31
+[Thu Jul 17 02:19:45.333444 2025] [:error] [pid 9899:tid 7757] [client 172.17.0.1:9876] error code: 10000132 tibame_delete_course api error user: test001 course_id: TI31
+[Thu Jul 17 02:20:45.333444 2025] [:error] [pid 9919:tid 7757] [client 172.17.0.1:9876] error code: 10000132 tibame_delete_course api error user: test001 course_id: TI31
+[Thu Jul 17 02:25:45.333444 2025] [:error] [pid 9929:tid 7757] [client 172.17.0.1:9876] error code: 10000132 tibame_delete_course api error user: test001 course_id: TI31
+[Thu Jul 17 02:15:45.333444 2025] [:error] [pid 9789:tid 7757] [client 172.17.0.1:9876] error code: 10000133 tibame_edit_course api error user: test001 course_id: TI31
+[Thu Jul 17 02:17:45.333444 2025] [:error] [pid 9889:tid 7757] [client 172.17.0.1:9876] error code: 10000133 tibame_edit_course api error user: test001 course_id: TI31
+[Thu Jul 17 02:19:45.333444 2025] [:error] [pid 9899:tid 7757] [client 172.17.0.1:9876] error code: 10000133 tibame_edit_course api error user: test001 course_id: TI31
+[Thu Jul 17 02:20:45.333444 2025] [:error] [pid 9919:tid 7757] [client 172.17.0.1:9876] error code: 10000133 tibame_edit_course api error user: test001 course_id: TI31
+[Thu Jul 17 02:25:45.333444 2025] [:error] [pid 9929:tid 7757] [client 172.17.0.1:9876] error code: 10000133 tibame_edit_course api error user: test001 course_id: TI31
