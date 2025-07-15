@@ -9,50 +9,16 @@ jobs:
   run-notebook:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
+      # ... (前面其他步驟不變) ...
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.9'
-
-      # --- START OF CORRECTION ---
-      - name: Install Microsoft ODBC Driver 18 for SQL Server
-        run: |
-          echo "Ubuntu Version: $(lsb_release -rs)"
-          sudo apt-get -qq update
-          sudo apt-get -qq install -y curl gpg apt-transport-https
-          
-          # 使用新的 GPG 金鑰處理方式
-          curl -s https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /usr/share/keyrings/microsoft-prod.gpg > /dev/null
-          
-          # 建立指向新金鑰的軟體來源列表
-          curl -s https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list
-          
-          # 更新套件列表
-          sudo apt-get -qq update
-
-          # 安裝 msodbcsql18
-          sudo ACCEPT_EULA=Y apt-get -qq install -y msodbcsql18 unixodbc-dev
-      # --- END OF CORRECTION ---
-
-      - name: Install Python Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install jupyter nbconvert pyodbc
-
-      - name: Verify Installation
-        run: |
-          # 驗證時應該要能看到 ODBC Driver 18 for SQL Server
-          python -c "import pyodbc; print('Available drivers:', pyodbc.drivers())"
-          
       - name: Run Notebook
         run: |
           jupyter nbconvert --to notebook --execute "你的筆記本檔名.ipynb" --output "output.ipynb"
           
+      # --- START OF CORRECTION ---
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4 # 將 v3 改為 v4
         with:
           name: executed-notebook
           path: output.ipynb
+      # --- END OF CORRECTION ---
