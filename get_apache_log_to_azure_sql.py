@@ -1,5 +1,5 @@
 import re
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 import pyodbc
 
 def parse_apache_log_to_azure_sql(log_file='apache_2.log'):
