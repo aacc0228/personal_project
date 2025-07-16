@@ -50,11 +50,9 @@ jobs:
       - name: Run Python Script
         run: python get_apache_log_to_azure_sql.py # 直接執行 .py 檔
         env:
-          # 將 GitHub Secret 轉換成 Python 腳本可以讀取的環境變數
           AZURE_SQL_PASSWORD: ${{ secrets.AZURE_SQL_PASSWORD }}
-          # 您也可以在這裡傳遞其他 Secrets
           AZURE_SQL_USERNAME: ${{ secrets.AZURE_SQL_USERNAME }}
-	  AZURE_SQL_SERVER: ${{ secrets.AZURE_SQL_SERVER }}
-	  AZURE_SQL_DATABASE: ${{ secrets.AZURE_SQL_DATABASE }}
+          AZURE_SQL_SERVER: ${{ secrets.AZURE_SQL_SERVER }}
+          AZURE_SQL_DATABASE: ${{ secrets.AZURE_SQL_DATABASE }}
 
          
