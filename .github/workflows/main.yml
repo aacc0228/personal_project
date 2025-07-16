@@ -2,10 +2,9 @@
 name: Debug Schedule Workflow
 
 on:
-  workflow_dispatch: # 保留手動觸發以便測試
   push:
     branches:
-      - master
+      - main
   schedule:
     - cron: '*/5 * * * *' # 每 5 分鐘執行一次，方便快速觀察
 
