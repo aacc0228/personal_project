@@ -2,8 +2,6 @@ name: Test Cron Schedule
 
 on:
   workflow_dispatch:      # 支援手動執行
-  schedule:               # 定時排程執行
-    - cron: '*/5 * * * *' # 每 5 分鐘跑一次 (UTC)
 
 jobs:
   test-cron:
